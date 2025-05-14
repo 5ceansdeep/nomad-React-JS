@@ -8,20 +8,21 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    let counter = 0;
-    function countup() {
-      counter = counter + 1;
-      render();
+    function App () {
+      let [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        setCounter(counter+1);
+        //modifier 함수 = counter=101010; ReactDOM.render(<App />, root);
+        // counter = counter + 1;
+        // console.log(counter);//(event.target.innerText);
+      }
+      return (
+        <div>
+          <h3>total Clicks : {counter}</h3>
+          <button onClick = {onClick}>Click me</button>
+        </div>
+      );
     }
-    function render() {
-      ReactDOM.render(<Container />, root);
-    }
-    const Container = () => ( // 함수인 것 잊지말기
-      <div>
-        <h3>total Clicks : {counter}</h3>
-        <button onClick = {countup}>Click me</button>
-      </div>
-    );
-    render();
+    ReactDOM.render(<App />, root);
   </script>
 </html>
