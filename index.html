@@ -11,7 +11,8 @@
     function App () {
       let [counter, setCounter] = React.useState(0);
       const onClick = () => {
-        setCounter(counter+1);
+        // setCounter(counter+1); 아래 코드와 같은 기능을 함
+        setCounter((now) => now + 1); //위 코드보다 훨씬 안전함
         //modifier 함수 = counter=101010; ReactDOM.render(<App />, root);
         // counter = counter + 1;
         // console.log(counter);//(event.target.innerText);
